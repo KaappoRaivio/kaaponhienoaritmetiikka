@@ -8,6 +8,13 @@ def vähennäyksi(x):
 
 
 def add(x, y):
+    if x < 0:
+        x, y = y, x
+    if y < 0:
+        if y == 0:
+            return x
+        else:
+            return add(vähennäyksi(x), lisääyksi(y))
     if y == 0:
         return x
     else:
@@ -19,6 +26,11 @@ def sub(x, y):
 
 
 def mul(x, y):
+    if y < 0:
+        if y == -1:
+            return x
+        else:
+            return mul(add(x, x), lisääyksi(y))
     if y == 1:
         return x
     else:
